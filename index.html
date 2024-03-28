@@ -52,14 +52,65 @@
 </head>
 <body>
     <div class="container">
-        <img src="testIImage.jpg" alt="결혼식 이미지" class="img-responsive">
+        <img src="testIImage.jpg" alt="결혼식 이미지" class="img-responsive" id="wedding-image">
         <div class="overlay">
-            <h1>우리의 결혼식에 초대합니다!</h1>
+            <h1 id="headline">우리의 결혼식에 초대합니다!</h1>
             <p>날짜: 2024년 7월 21일</p>
             <p>시간: 오후 2시</p>
             <p>장소: 한국의집 중정마당</p>
             <p>특별한 날에 함께해 주시길 바랍니다!</p>
         </div>
     </div>
+
+    <script>
+        // 이미지의 주요 색상을 추출하는 함수
+        function extractDominantColor(imageElement) {
+            var canvas = document.createElement("canvas");
+            var context = canvas.getContext("2d");
+            context.drawImage(imageElement, 0, 0);
+
+            var imageData = context.getImageData(0, 0, imageElement.width, imageElement.height);
+            var data = imageData.data;
+            var colorMap = {};
+
+            for (var i = 0; i < data.length; i += 4) {
+                var rgb = [data[i], data[i + 1], data[i + 2]];
+                var hex = rgbToHex(rgb[0], rgb[1], rgb[2]);
+                if (!colorMap[hex]) {
+                    colorMap[hex] = 1;
+                } else {
+                    colorMap[hex]++;
+                }
+            }
+
+            var dominantColor = Object.keys(colorMap).reduce(function(a, b) {
+                return colorMap[a] > colorMap[b] ? a : b;
+            });
+
+            return dominantColor;
+        }
+
+        // RGB 값을 Hex로 변환하는 함수
+        function rgbToHex(r, g, b) {
+            return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        }
+
+        // 이미지의 주요 색상 추출 후 텍스트 색상 변경
+        var weddingImage = document.getElementById("wedding-image");
+        weddingImage.onload = function() {
+            var dominantColor = extractDominantColor(this);
+            var headline = document.getElementById("headline");
+            headline.style.color = getContrastColor(dominantColor);
+        };
+
+        // 대비가 높은 색상을 반환하는 함수
+        function getContrastColor(hexColor) {
+            var r = parseInt(hexColor.substr(1, 2), 16);
+            var g = parseInt(hexColor.substr(3, 2), 16);
+            var b = parseInt(hexColor.substr(5, 2), 16);
+            var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            return (yiq >= 128) ? "#000000" : "#ffffff"; // 대비가 높은 색상 반환
+        }
+    </script>
 </body>
 </html>
