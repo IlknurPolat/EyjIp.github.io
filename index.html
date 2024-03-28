@@ -25,16 +25,39 @@
                 font-size: 16px;
             }
         }
+        
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>우리의 결혼식에 초대합니다!</h1>
-        <p>날짜: 2024년 4월 15일</p>
-        <p>시간: 오후 2시</p>
-        <p>장소: 아름다운 정원 결혼식장</p>
-        <p>특별한 날에 함께해 주시길 바랍니다!</p>
-        <img src="testIImage.jpg" alt="결혼식 이미지" style="max-width: 100%; height: auto;">
+    <div class="container">
+        <img src="testIImage.jpg" alt="결혼식 이미지" class="img-responsive">
+        <div class="overlay">
+            <h1>우리의 결혼식에 초대합니다!</h1>
+            <p>날짜: 2024년 7월 21일</p>
+            <p>시간: 오후 2시</p>
+            <p>장소: 한국의집 중정마당</p>
+            <p>특별한 날에 함께해 주시길 바랍니다!</p>
+        </div>
     </div>
 </body>
 </html>
