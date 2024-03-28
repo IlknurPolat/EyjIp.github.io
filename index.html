@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 청첩장</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #FF5733;
+        }
+
+        p {
+            color: #333;
+        }
+
+        @media only screen and (max-width: 600px) {
+            /* 모바일 화면에 대한 스타일링 */
+            body {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <p>Hello, World!</p>
+    <div>
+        <h1>우리의 결혼식에 초대합니다!</h1>
+        <p>날짜: 2024년 4월 15일</p>
+        <p>시간: 오후 2시</p>
+        <p>장소: 아름다운 정원 결혼식장</p>
+        <p>특별한 날에 함께해 주시길 바랍니다!</p>
+        <img src="testIImage.jpg" alt="결혼식 이미지" style="max-width: 100%; height: auto;">
+    </div>
 </body>
 </html>
