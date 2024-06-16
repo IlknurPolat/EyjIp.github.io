@@ -828,6 +828,11 @@ form label {
   font-weight: normal !important;
 }
 
+#fh5co-header {
+  background-size: cover;
+  background-position: center center; /* 이미지 중앙 정렬 */
+}
+
 #fh5co-header .display-tc,
 #fh5co-counter .display-tc,
 .fh5co-cover .display-tc {
