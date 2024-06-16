@@ -76,9 +76,9 @@
 		function copyToClipboard(text) {
 			if (navigator.clipboard) {
 				navigator.clipboard.writeText(text).then(function() {
-					alert('Copied to clipboard: ' + text);
+					//alert('Copied to clipboard: ' + text);
 				}, function(err) {
-					alert('Could not copy text: ', err);
+					//alert('Could not copy text: ', err);
 				});
 			} else {
 				var textArea = document.createElement("textarea");
