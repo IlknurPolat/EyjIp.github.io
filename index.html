@@ -88,9 +88,9 @@
 				textArea.select();
 				try {
 					document.execCommand('copy');
-					alert('Copied to clipboard: ' + text);
+					//alert('Copied to clipboard: ' + text);
 				} catch (err) {
-					alert('Could not copy text: ', err);
+					//alert('Could not copy text: ', err);
 				}
 				document.body.removeChild(textArea);
 			}
