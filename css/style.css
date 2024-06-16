@@ -831,6 +831,9 @@ form label {
 #fh5co-header {
   background-size: cover;
   background-position: center center; /* 이미지 중앙 정렬 */
+  background-attachment: fixed; /* 추가: 배경 이미지 고정 */
+  background-repeat: no-repeat;
+  height: 100vh; /* 추가: 헤더 높이 설정 */
 }
 
 #fh5co-header .display-tc,
