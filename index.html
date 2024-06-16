@@ -56,7 +56,46 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
+		<style>
+		/* 스타일 추가 */
+		.copy-button {
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			margin: 4px 2px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+	</style>
+	<script>
+		function copyToClipboard(text) {
+			if (navigator.clipboard) {
+				navigator.clipboard.writeText(text).then(function() {
+					alert('Copied to clipboard: ' + text);
+				}, function(err) {
+					alert('Could not copy text: ', err);
+				});
+			} else {
+				var textArea = document.createElement("textarea");
+				textArea.value = text;
+				document.body.appendChild(textArea);
+				textArea.focus();
+				textArea.select();
+				try {
+					document.execCommand('copy');
+					alert('Copied to clipboard: ' + text);
+				} catch (err) {
+					alert('Could not copy text: ', err);
+				}
+				document.body.removeChild(textArea);
+			}
+		}
+	</script>
 	</head>
 	<body>
 		
@@ -111,7 +150,7 @@
 		</div>
 	</header>
 
-
+<!--인포 시작-->
 	<div id="fh5co-Information" class="fh5co-bg">
 		<div class="overlay"></div>
 		<div class="container">
@@ -127,14 +166,13 @@
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
 									<h3>신랑측</h3>
-									<p>아버지 : 정태용</p> <p>어머니 : 김성은</p> <p>●</p>  <p>신랑 : 정의열</p> <p>혼주 계좌번호 : 821-12-071311(농협)</p> <p>신랑 계좌번호 : 302-2616-8413-61(농협)</p>
+									<p>아버지 : 정태용</p> <p>어머니 : 김성은</p> <p>●</p>  <p>신랑 : 정의열</p> <p>혼주 계좌번호 : 821-12-071311(농협)<button class="copy-button" onclick="copyToClipboard('82112071311')">복사</button></p> <p>신랑 계좌번호 : 302-2616-8413-61(농협)<button class="copy-button" onclick="copyToClipboard('3022616841361')">복사</button></p>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
 									<h3>신부측</h3>
-									<p>아버지 : POLAT MEHMET ALI</p> <p>어머니 : POALT AYSE</p> <p>●</p> <p>신부 :  POLAT JEONG ILKNUR</p> <p>신부 계좌번호 : 302-1785-7871-01(농협)</p>
-
+									<p>아버지 : POLAT MEHMET ALI</p> <p>어머니 : POALT AYSE</p> <p>●</p> <p>신부 :  POLAT JEONG ILKNUR</p> <p>신부 계좌번호 : 302-1785-7871-01(농협)<button class="copy-button" onclick="copyToClipboard('3021785787101')">복사</button></p>
 								</div>
 							</div>
 						</div>
@@ -143,7 +181,8 @@
 			</div>
 		</div>
 	</div>
-		
+	<!--인포 끝-->	
+	<!--이벤트 시작-->	
 	<div id="fh5co-event" class="fh5co-bg">
 		<div class="overlay"></div>
 		<div class="container">
@@ -195,8 +234,8 @@
 			</div>
 		</div>
 	</div>
-
-
+<!--이벤트 끝-->
+<!--갤러리 시작-->
 	<div id="fh5co-gallery" class="fh5co-section-gray">
 		<div class="container">
 			<div class="row">
@@ -233,7 +272,7 @@
 			</div>
 		</div>
 	</div>
-
+<!--갤러리 끝-->
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
